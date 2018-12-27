@@ -1,0 +1,6 @@
+###> symfony/framework-bundle ###
+.idea/
+/.idea/
+.vs/
+/.vs/
+*.iml
