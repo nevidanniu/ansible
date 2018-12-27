@@ -1,12 +1,10 @@
-# docker build -t artifactory.nsd.ru:18079/ansible:latest .
+# docker build -t artifactory.nsd.ru:18079/ansible:2.5.5 .
 FROM alpine:3.8
 
 ARG proxy=""
 
 ENV http_proxy $proxy
 ENV https_proxy $proxy
-ENV HTTP_PROXY=$proxy
-ENV HTTPS_PROXY=$proxy
 
 COPY ./certs/ /usr/local/share/ca-certificates/.
 
@@ -16,3 +14,4 @@ RUN apk update && apk upgrade && apk add --update --no-cache \
     ca-certificates \
     && update-ca-certificates
 
+COPY ./ansible.cfg /etc/ansible/ansible.cfg
