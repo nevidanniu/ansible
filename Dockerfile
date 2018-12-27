@@ -8,10 +8,10 @@ ENV https_proxy $proxy
 
 COPY ./certs/ /usr/local/share/ca-certificates/.
 
+COPY ./ansible.cfg /etc/ansible/ansible.cfg
+
 RUN apk update && apk upgrade && apk add --update --no-cache \
     ansible \
     sshpass \
     ca-certificates \
     && update-ca-certificates
-
-COPY ./ansible.cfg /etc/ansible/ansible.cfg
